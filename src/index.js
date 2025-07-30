@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 import './styles/global.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -12,8 +13,6 @@ import reportWebVitals from './reportWebVitals';
 library.add(fas, fab);
 
 // Solución temporal para los marcadores de Leaflet
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
