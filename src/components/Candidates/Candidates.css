@@ -1,0 +1,216 @@
+.candidates-section {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilos para las pestañas */
+.team-tabs {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tab-button:hover {
+  background: rgba(26, 75, 132, 0.1);
+}
+
+.tab-button.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Estilos para la cuadrícula de candidatos */
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilo específico para la sección de presidencia */
+.candidates-grid[data-level="presidencia"] {
+  grid-template-columns: repeat(2, minmax(300px, 350px));
+  max-width: 800px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.candidate-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.candidate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.candidate-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-image {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #f5f7fa;
+}
+
+.candidate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.candidate-card:hover .candidate-image img {
+  transform: scale(1.05);
+}
+
+.candidate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 75, 132, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.candidate-card:hover .candidate-overlay {
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: var(--accent-color);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.candidate-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.candidate-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.candidate-info .position {
+  display: block;
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.candidate-info p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+  .candidates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 800px;
+  }
+  
+  .candidates-grid[data-level="presidencia"] {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .team-tabs {
+    gap: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .candidates-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .candidates-grid[data-level="presidencia"] {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .candidate-card {
+    max-width: 100%;
+  }
+  
+  .candidate-image {
+    height: 320px;
+  }
+}
