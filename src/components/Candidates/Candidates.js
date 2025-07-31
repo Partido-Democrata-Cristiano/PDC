@@ -12,6 +12,7 @@ const Candidates = () => {
         position: 'Candidato a Presidente',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Rodrigo_Paz_Pereira._Official_portrait%2C_2020._Chamber_of_Senators_of_Bolivia.jpg/250px-Rodrigo_Paz_Pereira._Official_portrait%2C_2020._Chamber_of_Senators_of_Bolivia.jpg',
         bio: 'Empresario y político comprometido con el desarrollo de Bolivia. Con una visión clara de progreso y estabilidad económica para el país.',
+        video: '/videos/rodrigo-paz.mp4',
         social: {
           facebook: 'https://facebook.com/rodrigopaz',
           twitter: 'https://twitter.com/rodrigopaz',
@@ -24,6 +25,7 @@ const Candidates = () => {
         position: 'Candidato a Vicepresidente',
         image: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Capitan_Lara.jpg',
         bio: 'Experto en políticas públicas y desarrollo social. Comprometido con la transparencia y el bienestar de todos los bolivianos.',
+        video: '/videos/edman-lara.mp4',
         social: {
           facebook: 'https://facebook.com/edmanlara',
           twitter: 'https://twitter.com/edmanlara',
@@ -85,23 +87,21 @@ const Candidates = () => {
     ]
   };
 
-  const renderTeamMembers = (teamMembers) => {
-    return teamMembers.map((member) => (
-      <div key={`${member.position}-${member.id}`} className="candidate-card">
+  const renderTeamMembers = (members) => {
+    return members.map((member) => (
+      <div key={member.id} className="candidate-card">
         <div className="candidate-image">
           <img src={member.image} alt={member.name} />
-          <div className="candidate-overlay">
-            <div className="social-links">
-              <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
+          <div className="social-links">
+            <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i className="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
         <div className="candidate-info">
@@ -109,6 +109,26 @@ const Candidates = () => {
           <span className="position">{member.position}</span>
           <p>{member.bio}</p>
         </div>
+        
+        {/* Video de TikTok */}
+        {member.video && (
+          <div className="video-container">
+            <video 
+              width="100%" 
+              height="auto" 
+              controls 
+              style={{
+                maxWidth: '325px',
+                margin: '15px auto 0',
+                borderRadius: '8px',
+                border: '1px solid #eee'
+              }}
+            >
+              <source src={member.video} type="video/mp4" />
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+          </div>
+        )}
       </div>
     ));
   };

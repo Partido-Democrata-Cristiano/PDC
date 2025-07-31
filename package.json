@@ -1,7 +1,7 @@
 {
   "name": "partido-dc",
   "version": "0.1.0",
-  "homepage": "https://Partido-Democrata-Cristiano.github.io/PDC",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
@@ -13,10 +13,12 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "leaflet": "^1.9.4",
+    "mega-client": "^0.0.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.7.1",
+    "react-modal": "^3.16.3",
+    "react-router-dom": "^6.30.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
