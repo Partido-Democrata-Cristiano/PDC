@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Candidates.css';
 
 const Candidates = () => {
   const [activeTab, setActiveTab] = useState('presidencia');
+
+  // Referencias a todos los videos
+  const videoRefs = useRef([]);
+
+  // Agregar video a la lista de referencias
+  const addVideoRef = (el) => {
+    if (el && !videoRefs.current.includes(el)) {
+      videoRefs.current.push(el);
+    }
+  };
 
   const team = {
     presidencia: [
@@ -12,7 +22,7 @@ const Candidates = () => {
         position: 'Candidato a Presidente',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Rodrigo_Paz_Pereira._Official_portrait%2C_2020._Chamber_of_Senators_of_Bolivia.jpg/250px-Rodrigo_Paz_Pereira._Official_portrait%2C_2020._Chamber_of_Senators_of_Bolivia.jpg',
         bio: 'Empresario y político comprometido con el desarrollo de Bolivia. Con una visión clara de progreso y estabilidad económica para el país.',
-        video: '/videos/rodrigo-paz.mp4',
+        video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/rodrigo-paz.mp4',
         social: {
           facebook: 'https://facebook.com/rodrigopaz',
           twitter: 'https://twitter.com/rodrigopaz',
@@ -25,7 +35,7 @@ const Candidates = () => {
         position: 'Candidato a Vicepresidente',
         image: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Capitan_Lara.jpg',
         bio: 'Experto en políticas públicas y desarrollo social. Comprometido con la transparencia y el bienestar de todos los bolivianos.',
-        video: '/videos/edman-lara.mp4',
+        video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/edman-lara.mp4',
         social: {
           facebook: 'https://facebook.com/edmanlara',
           twitter: 'https://twitter.com/edmanlara',
@@ -118,10 +128,26 @@ const Candidates = () => {
               height="auto" 
               controls 
               style={{
-                maxWidth: '325px',
-                margin: '15px auto 0',
-                borderRadius: '8px',
-                border: '1px solid #eee'
+                maxWidth: '350px',
+                aspectRatio: '9/16',
+                borderRadius: '20px',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
+              }}
+              ref={(el) => addVideoRef(el)}
+              onPlay={(e) => {
+                // Pausar todos los videos excepto el actual
+                videoRefs.current.forEach(video => {
+                  if (video !== e.target) {
+                    try {
+                      video.pause();
+                    } catch (error) {
+                      console.error('Error pausando video:', error);
+                    }
+                  }
+                });
+              }}
+              onPause={() => {
+                // No necesitamos hacer nada cuando se pausa
               }}
             >
               <source src={member.video} type="video/mp4" />
@@ -136,7 +162,7 @@ const Candidates = () => {
   return (
     <section className="candidates-section">
       <div className="container">
-        <h2 className="section-title">Nuestro Equipo de Gobierno</h2>
+        <h2 className="candidates-title" style={{ color: '#000000', fontSize: '2.5rem', fontWeight: '700', marginTop: '3rem', marginBottom: '2rem', textAlign: 'center' }}>Nuestro Equipo de Gobierno</h2>
         <p className="section-subtitle">Conoce al equipo que trabajará por el cambio que Bolivia necesita</p>
         
         <div className="team-tabs">

@@ -35,7 +35,7 @@ const Home = () => {
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                <source src="/videos/home-video.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/home-video.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>

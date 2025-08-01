@@ -1,6 +1,50 @@
 .proposals-section {
-  padding: 10rem 0;
+  padding: 6rem 0;
   background-color: var(--light-color);
+}
+
+@media (max-width: 768px) {
+  .proposals-section {
+    padding: 3rem 1rem;
+  }
+
+  .proposals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 90%;
+  }
+
+  .proposal-card {
+    padding: 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .proposal-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .proposal-video-container,
+  .additional-video-card {
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .additional-videos-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .additional-video-card video {
+    width: 100%;
+    height: auto;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 90%;
+  }
 }
 
 .section-subtitle {

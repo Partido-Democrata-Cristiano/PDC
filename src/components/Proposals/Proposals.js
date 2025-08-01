@@ -2,55 +2,64 @@ import React from 'react';
 import './Proposals.css';
 
 const Proposals = () => {
+  // Referencias a todos los videos
+  const videoRefs = React.useRef([]);
+
+  // Agregar video a la lista de referencias
+  const addVideoRef = (el) => {
+    if (el && !videoRefs.current.includes(el)) {
+      videoRefs.current.push(el);
+    }
+  };
     const proposals = [
     {
       id: 1,
       title: 'Redistribución Equitativa 50/50',
       icon: 'fas fa-balance-scale',
       description: 'Fin al centralismo asfixiante. División equitativa de ingresos entre el estado central, regiones, municipios y universidades públicas, devolviendo el poder a cada rincón de Bolivia.',
-      video: '/videos/redistribucion.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/redistribucion.mp4'
     },
     {
       id: 2,
       title: 'Impuestos y Aranceles Justos',
       icon: 'fas fa-percentage',
       description: 'Reducción de impuestos y aranceles para facilitar la formalización del 75% de las actividades informales, promoviendo un comercio justo y accesible para todos.',
-      video: '/videos/impuestos.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/impuestos.mp4'
     },
     {
       id: 3,
       title: 'Capitalismo para Todos',
       icon: 'fas fa-hands-helping',
       description: 'Apoyo al emprendimiento boliviano con créditos accesibles y menos trámites burocráticos, abriendo caminos al progreso y prosperidad.',
-      video: '/videos/capitalismo.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/capitalismo.mp4'
     },
     {
       id: 4,
       title: 'Fin a Subsidios Ineficientes',
       icon: 'fas fa-hand-holding-usd',
       description: 'Eliminación de subsidios a empresas estatales deficitarias, redirigiendo los recursos a proyectos que beneficien directamente a la población.',
-      video: '/videos/subsidios.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/subsidios.mp4'
     },
     {
       id: 5,
       title: 'Sinceramiento Económico',
       icon: 'fas fa-search-dollar',
       description: 'Transparencia económica, eliminación del desorden fiscal y fortalecimiento de nuestra moneda para garantizar un futuro estable y seguro.',
-      video: '/videos/economico.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/economico.mp4'
     },
     {
       id: 6,
       title: 'Bonos de Carbono',
       icon: 'fas fa-tree',
       description: 'Emisión de bonos de carbono para conservar nuestros bosques, con compensaciones económicas para departamentos, municipios y personas que preserven áreas verdes sin vocación productiva.',
-      video: '/videos/carbono.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/carbono.mp4'
     },
     {
       id: 7,
       title: 'Salud Pública Prioritaria',
       icon: 'fas fa-hospital',
       description: 'Mejora de la infraestructura y equipamiento hospitalario, con descentralización del sistema de salud y asignación de recursos bajo el esquema 50/50. Cobertura integral que incluya medicamentos, cirugías y servicios actualmente limitados.',
-      video: '/videos/salud.mp4'
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/salud.mp4'
     }
   ];
 
@@ -91,6 +100,24 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
                 <source src={proposal.video} type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
@@ -123,8 +150,26 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
-                <source src="/videos/cpd/adicional1.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/cpd/adicional1.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>
@@ -139,8 +184,26 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
-                <source src="/videos/cpd/adicional2.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/cpd/adicional2.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>
@@ -155,8 +218,26 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
-                <source src="/videos/cpd/adicional3.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/cpd/adicional3.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>
@@ -171,8 +252,26 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
-                <source src="/videos/cpd/adicional4.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/cpd/adicional4.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>
@@ -187,8 +286,26 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
-                <source src="/videos/cpd/adicional5.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/cpd/adicional5.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>
@@ -203,8 +320,26 @@ const Proposals = () => {
                   borderRadius: '20px',
                   boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                 }}
+                ref={(el) => addVideoRef(el)}
+                onPlay={(e) => {
+                  // Pausar todos los videos excepto el actual
+                  videoRefs.current.forEach(video => {
+                    if (video !== e.target) {
+                      try {
+                        video.pause();
+                      } catch (error) {
+                        console.error('Error pausando video:', error);
+                      }
+                    }
+                  });
+
+                }}
+                onPause={() => {
+                  // No necesitamos hacer nada cuando se pausa
+                }}
+
               >
-                <source src="/videos/cpd/adicional6.mp4" type="video/mp4" />
+                <source src="https://Partido-Democrata-Cristiano.github.io/PDC/videos/cpd/adicional6.mp4" type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
             </div>
