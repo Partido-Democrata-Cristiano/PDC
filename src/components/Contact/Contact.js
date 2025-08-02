@@ -328,7 +328,7 @@ const Contact = () => {
           <h3>Contáctanos por WhatsApp</h3>
           <p>Haz clic en el botón para enviarnos un mensaje directo:</p>
           <a 
-            href="https://wa.me/59170000000" 
+            href="https://wa.me/59161356466" 
             target="_blank" 
             rel="noopener noreferrer"
             className="whatsapp-button"

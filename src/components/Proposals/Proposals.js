@@ -60,6 +60,13 @@ const Proposals = () => {
       icon: 'fas fa-hospital',
       description: 'Mejora de la infraestructura y equipamiento hospitalario, con descentralización del sistema de salud y asignación de recursos bajo el esquema 50/50. Cobertura integral que incluya medicamentos, cirugías y servicios actualmente limitados.',
       video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/salud.mp4'
+    },
+    {
+      id: 8,
+      title: 'Salario Universal para la Mujer',
+      icon: 'fas fa-female',
+      description: 'Implementación de un ingreso económico mensual para todas las mujeres bolivianas mayores de 18 años, reconociendo su trabajo no remunerado y promoviendo su autonomía económica. Este apoyo será financiado con recursos de la redistribución equitativa y la optimización del gasto público.',
+      video: 'https://Partido-Democrata-Cristiano.github.io/PDC/videos/salario.mp4'
     }
   ];
 
